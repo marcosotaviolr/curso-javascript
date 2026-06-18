@@ -1,0 +1,23 @@
+        body {
+            font: normal 15pt Arial;
+            text-align: center;
+            background-color: rgba(77, 169, 255, 0.836);
+        }
+        header {
+            color: white;
+        }
+        section {
+            width: fit-content;
+            height: auto;
+            min-height: 200px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+        }
+        footer {
+            color: white;
+            margin: 20px;
+        }

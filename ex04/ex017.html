@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+            text-align: center;
+            background-color: rgba(77, 169, 255, 0.836);
+        }
+        header {
+            color: white;
+        }
+        section {
+            width: 600px;
+            height: auto;
+            min-height: 200px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+        }
+        footer {
+            color: white;
+            margin: 20px;
+        }
+        #res {
+            text-align: center;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <section>
+        <label for="txtn">Número:</label>
+        <input type="number" id="txtn">
+        <input type="button" value="Gerar Tabuada" onclick="gerar()">
+        <br>
+        <select id="tabuada" size="10"></select>
+    </section>
+    <footer>
+        @marcosotaviolr
+    </footer>
+
+    <script>
+        let num = document.querySelector('#txtn')
+        let tab = document.querySelector('#tabuada')
+
+        function gerar() {
+            let n = Number(num.value)
+            if (!num.value) {
+                window.alert('Sem valor digitado')
+            } else {
+                tab.innerHTML = ''
+                for (let c = 0; c <= 10; c++) {
+                    let item = document.createElement('option')
+                    item.text = `${n} x ${c} = ${n * c}`
+                    tab.appendChild(item)
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

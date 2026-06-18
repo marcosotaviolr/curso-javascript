@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+            text-align: center;
+            background-color: rgba(77, 169, 255, 0.836);
+        }
+        header {
+            color: white;
+        }
+        section {
+            width: 600px;
+            height: auto;
+            min-height: 200px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            margin: auto;
+            text-align: left;
+            padding: 20px;
+        }
+        footer {
+            color: white;
+            margin: 20px;
+        }
+        .foto {
+            width: 250px;
+            height: 250px;
+            border-radius: 100%;
+            display: block;
+            margin: auto;
+        }
+        #res {
+            text-align: center;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <section>
+        <p>Ano de nascimento: <input type="number" id="ano"></p>
+        <p>Sexo:
+            <input type="radio" name="sexo" id="masc">
+            <label for="masc">Masculino</label>
+
+            <input type="radio" name="sexo" id="fem">
+            <label for="fem">Feminino</label>
+        </p>
+        <input type="button" value="Verificar" id="verificar" onclick="veridade()">
+        <div id="res">
+            <p>Preencha os dados acima para ver o resultado</p>
+        </div>
+        <div id="img">
+            <img id="foto" class="foto" src="" style="display:none">
+        </div>
+    </section>
+    <footer>
+        @marcosotaviolr
+    </footer>
+
+    <script>
+        let agora = new Date()
+        let ano = agora.getFullYear()
+        let nasc = window.document.querySelector('#ano')
+        let sexo = window.document.getElementsByName('sexo')
+        let res = window.document.querySelector('#res')
+        let foto = window.document.querySelector('#foto')
+        
+        function veridade() {
+            let anonasc = Number(nasc.value)
+            let idade = ano - anonasc
+            res.innerHTML = idade
+
+            if (!anonasc || anonasc < 1900 || anonasc > ano) {
+                res.innerHTML = 'Por favor, informe um ano de nascimento válido.'
+                return 
+            }
+
+            if (sexo[0].checked) {
+                if (idade <= 14) {
+                    res.innerHTML = `Menino com ${idade} anos.`
+                    foto.src = 'img/masc14.jpg'
+                } else if (idade <= 25) {
+                    res.innerHTML = `Homem com ${idade} anos.`
+                    foto.src = 'img/masc25.webp'
+                } else if (idade <= 50) {
+                    res.innerHTML = `Homem com ${idade} anos.`
+                    foto.src = 'img/masc50.webp'
+                } else {
+                    res.innerHTML = `Homem com ${idade} anos.`
+                    foto.src = 'img/masc60.webp'
+                }
+                foto.style.display = 'block'
+            } else if (sexo[1].checked) {
+                if (idade <= 14) {
+                    res.innerHTML = `Menina com ${idade} anos.`
+                    foto.src = 'img/fem14.jpg'
+                } else if (idade <= 25) {
+                    res.innerHTML = `Mulher com ${idade} anos.`
+                    foto.src = 'img/fem25.webp'
+                } else if (idade <= 50) {
+                    res.innerHTML = `Mulher com ${idade} anos.`
+                    foto.src = 'img/fem50.webp'
+                } else {
+                    res.innerHTML = `Mulher com ${idade} anos.`
+                    foto.src = 'img/fem60.png'
+                }
+                foto.style.display = 'block'
+            } else {
+                res.innerHTML = 'Por favor, selecione o sexo.'
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+    <style>
+        body {
+            font: normal 15pt Arial;
+            text-align: center;
+            background-color: rgb(68, 68, 136);
+        }
+        h1 {
+            color: white;
+            margin: 30px;
+        }
+        section {
+            width: 600px;
+            height: 430px;
+            border-radius: 7px;
+            background-color: white;
+            margin: auto;
+        }
+        #hora {
+            padding: 20px;
+            margin: 20px;
+        }
+        img {
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+        }
+        footer {
+            margin: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hora do dia</h1>
+    </header>
+    <section>
+        <div id="hora"></div>
+        <img id="foto" src="img/dia.webp" alt="dia">
+    </section>
+    <footer>
+        @marcosotaviolr
+    </footer>
+    <script>
+        let agora = new Date()
+        let horadia = agora.getHours()
+        let divhora = window.document.querySelector('#hora')
+        let divimg = window.document.querySelector('#img')
+        let foto = window.document.querySelector('#foto')
+
+        divhora.innerHTML = `Agora são ${horadia} horas`
+
+        if (horadia < 12 && horadia >= 0) {
+            document.body.style.backgroundColor = 'rgba(77, 169, 255, 0.836)'
+            foto.src = 'img/dia.webp'
+        } else if (horadia < 18 && horadia >= 12) {
+            document.body.style.backgroundColor = 'rgb(247, 183, 65)'
+            foto.src = 'img/tarde.jpg'
+        } else if (horadia < 24 && horadia >= 18) {
+            document.body.style.backgroundColor = 'rgb(68, 68, 136)'
+            foto.src = 'img/noite.jpg'
+         }
+    </script>
+</body>
+</html>
