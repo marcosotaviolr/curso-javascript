@@ -1,2 +1,9 @@
-# curso-javascript
-Exercícios e projetos desenvolvidos durante o curso de JavaScript.
+# Curso de JavaScript
+
+Repositório contendo exercícios e projetos desenvolvidos durante meus estudos de JavaScript no Curso em Vídeo.
+
+## Exercícios
+- Contador
+- Tabuada
+- Verificador de Idade
+- Analisador de Números
